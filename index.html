@@ -10,24 +10,21 @@
 	<script type="text/javascript" src="jquery/js/jquery-ui-1.8.14.custom.min.js"></script>
 	<link rel="stylesheet" media="screen" type="text/css" href="jquery/css/smoothness/jquery-ui-1.8.14.custom.css" />
 	
-	<script src="jssha256.js"></script>
-	<script src="JWT.js"></script>
+	<script src="lib/jssha256.js"></script>
+	<script src="lib/JWT.js"></script>
 	<title>index</title>
 	<script>
 	
 	
 		claims = {
-			'sdf': 'lksdjflkdsjflkdsjf',
-			'user_id': 'sdlkfjsdlkfj',
-			'client_id': 'sldkjfldskjf',
-			'aud': 'sldkjfldskjf',
-			'sdf': 'foo'
+			'user_id': 'andreassolberg',
+			'client_id': 'https://consumer.example.org',
+			'aud': 'https://example.org'
 		};
 
 		options = {
 			'iss': 'https://issuer.example.org',
 			'aud': 'sldkjflsdskjf',
-//			'alg': 'HS256',
 			'secret': '87as6d87sa6d87a6s',
 			'supported_claims' : ['sdf']
 		};
