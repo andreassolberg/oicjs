@@ -46,7 +46,10 @@ Creating an ID Token
 		'client_id': 'https://consumer.example.org',
 		'aud': 'https://example.org'
 	};
-	var packedToken = idtoken(options).init(claims).sign();
+	// Expires in one hour.
+	var packedToken = idtoken(options).init(claims).setTimeHeaders(3600).sign();
+
+The `setTimeHeaders(expiresInSeconds)` sets the `exp`, `iat` and `nbf` headers.
 
 ## Parsing and validating an ID Token
 
