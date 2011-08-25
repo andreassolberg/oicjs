@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+	"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	
+	<!-- JQuery + JQuery UI -->
+	<script type="text/javascript" src="jquery/js/jquery-1.5.1.min.js"></script>
+	<script type="text/javascript" src="jquery/js/jquery-ui-1.8.14.custom.min.js"></script>
+	<link rel="stylesheet" media="screen" type="text/css" href="jquery/css/smoothness/jquery-ui-1.8.14.custom.css" />
+	
+	<script src="jssha256.js"></script>
+	<script src="JWT.js"></script>
+	<title>index</title>
+	<script>
+	
+	
+		claims = {
+			'sdf': 'lksdjflkdsjflkdsjf',
+			'user_id': 'sdlkfjsdlkfj',
+			'client_id': 'sldkjfldskjf',
+			'aud': 'sldkjfldskjf',
+			'sdf': 'foo'
+		};
+
+		options = {
+			'iss': 'https://issuer.example.org',
+			'aud': 'sldkjflsdskjf',
+//			'alg': 'HS256',
+			'secret': '87as6d87sa6d87a6s',
+			'supported_claims' : ['sdf']
+		};
+
+	
+		$(document).ready(function () {
+			console.log('Creating and signing a JWT');
+			j = idtoken(options).init(claims);
+			j.setTimeHeaders(3600); // Set validity of this token to one hour.
+			o = j.sign();
+			console.log('Created a signed JWT: ' + o);
+			
+			console.log('Decoding a JWT');
+			dj = idtoken(options).init(o);
+			console.log(dj.getClaims());
+			console.log(dj.getHeader());
+			
+		});
+
+	
+	</script>
+</head>
+
+<body>
+
+<div id="output" style="font-family: monospace;">
+</div>
+
+
+</body>
+</html>
