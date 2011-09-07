@@ -23,6 +23,9 @@ Currently only a set of examples.
 
 ### OpenID Connect Provider
 
+<script src="https://gist.github.com/1200033.js?file=openid-connect-lab-provider-metadata.js"></script>
+
+
 	{
 		// The identifier of this Provider
 		'issuer': 'provider',
